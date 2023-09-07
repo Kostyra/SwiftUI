@@ -1,21 +1,20 @@
-//
-//  ContentView.swift
-//  NavigationSwiftUI
-//
-//  Created by Юлия Филиппова on 05.09.2023.
-//
+
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView {
+            InfoView()
+                .tabItem {
+                    Label("Table", systemImage: "tablecells")
+                }
+            HelloView()
+                .tabItem{
+                    Label("Hello World", systemImage: "hand.raised.fill")
+                }
         }
-        .padding()
+
     }
 }
 
