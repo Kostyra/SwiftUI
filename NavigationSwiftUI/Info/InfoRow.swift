@@ -1,9 +1,4 @@
-//
-//  InfoRow.swift
-//  NavigationSwiftUI
-//
-//  Created by Юлия Филиппова on 06.09.2023.
-//
+
 
 import SwiftUI
 

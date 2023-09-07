@@ -13,6 +13,10 @@ struct ContentView: View {
                 .tabItem{
                     Label("Hello World", systemImage: "hand.raised.fill")
                 }
+            SettingsView()
+                .tabItem {
+                    Label("Setting", systemImage: "slider.horizontal.3")
+                }
         }
 
     }

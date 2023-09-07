@@ -1,9 +1,4 @@
-//
-//  NavigationSwiftUIApp.swift
-//  NavigationSwiftUI
-//
-//  Created by Юлия Филиппова on 05.09.2023.
-//
+
 
 import SwiftUI
 

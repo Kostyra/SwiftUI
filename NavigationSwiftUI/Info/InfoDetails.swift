@@ -1,20 +1,39 @@
-//
-//  InfoDetails.swift
-//  NavigationSwiftUI
-//
-//  Created by Юлия Филиппова on 06.09.2023.
-//
+
 
 import SwiftUI
 
 struct InfoDetails: View {
+    var post: Post
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            post.image
+                .resizable()
+                .scaledToFit()
+                .shadow(radius: 12)
+                .padding(.top,16)
+            VStack{
+                Text(post.title)
+                    .foregroundColor(.blue)
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
+                +
+                Text(" - ")
+                +
+                Text(post.title2)
+                    .foregroundColor(.indigo)
+                    .font (.system(size: 30))
+                Divider()
+                
+                Text(post.description)
+                    .font(.system(size: 30, design: .rounded))
+            }
+            
+        }
     }
 }
 
 struct InfoDetails_Previews: PreviewProvider {
     static var previews: some View {
-        InfoDetails()
+        InfoDetails(post: Post.postData[0])
     }
 }

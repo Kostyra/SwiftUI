@@ -1,16 +1,26 @@
-//
-//  HelloView.swift
-//  NavigationSwiftUI
-//
-//  Created by Юлия Филиппова on 06.09.2023.
-//
+
 
 import SwiftUI
 
 struct HelloView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        VStack {
+            Text("Hello, World!")
+                .font(.system(size: 20, design: .serif))
+                .foregroundColor(.cyan)
+            Text("Description")
+                .font(.system(size: 20, design: .monospaced))
+                .bold()
+                .padding(10)
+                .foregroundColor(.green)
+            VStack{
+                Image("Casle")
+                    .resizable()
+                    .frame(width: 150,height: 150)
+                    .cornerRadius(75)
+                    .shadow(radius: 30)
+            }
+        }    }
 }
 
 struct HelloView_Previews: PreviewProvider {
