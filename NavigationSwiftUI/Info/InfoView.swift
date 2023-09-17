@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct InfoView: View {
+    @Binding var titleOn: Bool
     var body: some View {
         NavigationView {
             List(Post.postData) { post in
@@ -11,8 +12,9 @@ struct InfoView: View {
                 } label: {
                     InfoRow(post: post)
                 }
+                
             }
-            .navigationTitle("MK - 1")
+            .navigationTitle(titleOn ? "" : "MK - 1")
             .listStyle(.plain)
         }
     }
@@ -20,6 +22,6 @@ struct InfoView: View {
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView()
+        InfoView(titleOn: .constant(false))        
     }
 }

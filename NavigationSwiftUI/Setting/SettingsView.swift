@@ -2,12 +2,10 @@
 import SwiftUI
 
 struct SettingsView: View {
-
-    @AppStorage("colorScheme") var colorScheme: String = "light"
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var linkOn = false
-//    @State private var toggler = true
-    
+    @Binding var titleOn: Bool
     @State private var sliderValue = 0.0
     @State private var isChanging = false
  
@@ -17,11 +15,22 @@ struct SettingsView: View {
             Section{
                 Toggle("Light vs Dark", isOn: $linkOn.animation())
                     .onChange(of: linkOn) { newValue in
-                        colorScheme = newValue ? "dark" : "light"
                     }
                 if linkOn {
                     Skala()
                 }
+                Text("iOS appearancex: " + (colorScheme == .dark ? "dark mode" : "light mode"))
+                    .padding(32)
+            }
+            
+            Section{
+                Toggle("Header in infoView", isOn: $titleOn.animation())
+                    .onChange(of: titleOn) { newValue in
+                        withAnimation {
+                            titleOn.toggle()
+                        }
+                    }
+                
             }
 
             
@@ -42,12 +51,12 @@ struct SettingsView: View {
                 if linkOn == false {Ioda()}
             }
         }
-        .preferredColorScheme(colorScheme == "dark" ? .dark : .light)
+        
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(titleOn: .constant(false))
     }
 }
