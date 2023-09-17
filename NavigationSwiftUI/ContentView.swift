@@ -3,9 +3,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("titleOn") var titleOn: Bool = false
+    //@State private var titleOn: Bool = false
     var body: some View {
         TabView {
-            InfoView()
+            InfoView(titleOn: $titleOn)
                 .tabItem {
                     Label("Table", systemImage: "tablecells")
                 }
@@ -13,7 +15,7 @@ struct ContentView: View {
                 .tabItem{
                     Label("Hello World", systemImage: "hand.raised.fill")
                 }
-            SettingsView()
+            SettingsView(titleOn: $titleOn)
                 .tabItem {
                     Label("Setting", systemImage: "slider.horizontal.3")
                 }
